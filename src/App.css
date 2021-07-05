@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(88,87,85);
+  background: rgb(42, 235, 237);
+  background: linear-gradient(
+    90deg,
+    rgba(98, 215, 207, 1) 0%,
+    rgba(90, 183, 217, 1) 50%,
+    rgba(78, 142, 229, 1) 100%
+  );
+}
+
+h1 {
+  text-shadow: 1px 1px 1px rgba(39, 39, 38, 0.555);
+}
+
+.container {
+  max-width: 50%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.task_input {
+  display: block;
+  width: 250px;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(24, 139, 141);
+}
+
+input:focus {
+  box-shadow: 5px 0px 2px 0px rgba(42, 234, 237, 0.404) inset;
+}
+
+.add_button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(141, 76, 232);
+  border: none;
+  outline: none;
+  border-radius: 0 5px 5px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(250, 253, 255);
+}
+
+.add_button:hover {
+  box-shadow: -5px 0px 2px 0px rgba(34, 3, 77, 0.61) inset;
+  transition: 0.2s;
+}
+
+.add_button:active {
+  border: none;
+  background-color: rgb(175, 135, 231);
+}
+
+.add_button .material-icons {
+  line-height: 40px;
+}
+
+.todo_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+.task_point {
+  width: 280px;
+  margin: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  color: rgb(88,87,85);
+  padding: 0;
+  border-radius: 0px;
+}
+
+.task_point:focus {
+  box-shadow: none;
+}
+
+.delete_button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(235, 75, 63);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  outline: none;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  transition: 0.2s;
+}
+
+.delete_button .material-icons {
+  font-size: 20px;
+  color: rgb(242, 242, 242);
+}
+
+.delete_button:hover {
+  box-shadow: -5px 0px 2px 0px rgba(187, 12, 0, 0.425) inset;
+  transition: 0.2s;
+}
+
+.delete_button:active {
+  border: none;
+  background-color: rgb(248, 187, 164);
+}
+
+input[type="checkbox"] {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: rgb(248, 248, 248);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: rgb(137, 243, 146);
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer p{
+  margin-right: 50px;
+  color: rgb(54, 54, 54);
+}
+
+.clear_all {
+  display: block;
+  height: 30px;
+  background-color: rgb(141, 76, 232);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding: 0 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(250, 253, 255);
+}
+
+.clear_all:hover {
+  box-shadow: 0px 0px 4px 0px rgba(34, 3, 77, 0.61) inset;
+  transition: 0.2s;
+}
+
+.clear_all:active {
+  border: none;
+  background-color: rgb(175, 135, 231);
+}
