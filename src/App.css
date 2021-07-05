@@ -26,7 +26,7 @@ h1 {
   justify-content: center;
 }
 
-.input_wrapper {
+.input-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -34,7 +34,7 @@ h1 {
   margin: 20px 0;
 }
 
-.task_input {
+.task-input {
   display: block;
   width: 250px;
   height: 30px;
@@ -50,7 +50,7 @@ input:focus {
   box-shadow: 5px 0px 2px 0px rgba(42, 234, 237, 0.404) inset;
 }
 
-.add_button {
+.add-button {
   display: block;
   width: 40px;
   height: 40px;
@@ -62,21 +62,21 @@ input:focus {
   color: rgb(250, 253, 255);
 }
 
-.add_button:hover {
+.add-button:hover {
   box-shadow: -5px 0px 2px 0px rgba(34, 3, 77, 0.61) inset;
   transition: 0.2s;
 }
 
-.add_button:active {
+.add-button:active {
   border: none;
   background-color: rgb(175, 135, 231);
 }
 
-.add_button .material-icons {
+.add-button .material-icons {
   line-height: 40px;
 }
 
-.todo_list {
+.todo-list {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,7 +95,7 @@ input:focus {
   padding-left: 10px;
 }
 
-.task_point {
+.task-point {
   width: 280px;
   margin: 0 10px;
   height: 30px;
@@ -105,11 +105,11 @@ input:focus {
   border-radius: 0px;
 }
 
-.task_point:focus {
+.task-point:focus {
   box-shadow: none;
 }
 
-.delete_button {
+.delete-button {
   display: block;
   width: 40px;
   height: 40px;
@@ -122,30 +122,34 @@ input:focus {
   transition: 0.2s;
 }
 
-.delete_button .material-icons {
+.delete-button .material-icons {
   font-size: 20px;
   color: rgb(242, 242, 242);
 }
 
-.delete_button:hover {
+.delete-button:hover {
   box-shadow: -5px 0px 2px 0px rgba(187, 12, 0, 0.425) inset;
   transition: 0.2s;
 }
 
-.delete_button:active {
+.delete-button:active {
   border: none;
   background-color: rgb(248, 187, 164);
 }
 
 input[type="checkbox"] {
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   background-color: rgb(248, 248, 248);
   border: none;
   outline: none;
   border-radius: 5px;
   color: rgb(137, 243, 146);
+}
+
+input[type="checkbox"]:focus {
+  box-shadow: none;
 }
 
 .completed {
@@ -163,7 +167,7 @@ input[type="checkbox"] {
   color: rgb(54, 54, 54);
 }
 
-.clear_all {
+.clear-all {
   display: block;
   height: 30px;
   background-color: rgb(141, 76, 232);
@@ -175,12 +179,12 @@ input[type="checkbox"] {
   color: rgb(250, 253, 255);
 }
 
-.clear_all:hover {
+.clear-all:hover {
   box-shadow: 0px 0px 4px 0px rgba(34, 3, 77, 0.61) inset;
   transition: 0.2s;
 }
 
-.clear_all:active {
+.clear-all:active {
   border: none;
   background-color: rgb(175, 135, 231);
 }
