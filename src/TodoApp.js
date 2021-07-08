@@ -7,8 +7,14 @@ const TodoApp = () => {
 
   const [textInput, setTextInput] = useState("");
   const [tasks, setTasks] = useState([]);
-  const [completed, setCompleted] = useState(false);
 
+  const addTask = (obj) => {
+    setTasks([...tasks, obj]);
+  }
+
+  const changeStatus = (currentTask) => {
+    setTasks(tasks.map((item) => (item.id === currentTask.id) ? ({ ...item, completed: !currentTask.completed }) : item))
+  }
 
   return (
     <div className="container">
@@ -16,20 +22,15 @@ const TodoApp = () => {
       <TodoInput
         textInput={textInput}
         setTextInput={setTextInput}
-        tasks={tasks}
-        setTasks={setTasks}
-        // completed = {completed}
+        addTask={addTask}
       />
       <TodoList
-        textInput={textInput}
-        setTextInput={setTextInput}
         tasks={tasks}
         setTasks={setTasks}
-        setCompleted={setCompleted}
-        completed = {completed}
+        changeStatus={changeStatus}
       />
-      {!tasks.length || <ReviewList tasks={tasks.length} setTasks={setTasks} / >}
-    
+      {!tasks.length || <ReviewList tasks={tasks.length} setTasks={setTasks} />}
+
     </div>
   );
 }
