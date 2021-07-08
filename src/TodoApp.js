@@ -7,7 +7,8 @@ const TodoApp = () => {
 
   const [textInput, setTextInput] = useState("");
   const [tasks, setTasks] = useState([]);
-  const [isDone, setIsDone] = useState(false);
+  const [completed, setCompleted] = useState(false);
+
 
   return (
     <div className="container">
@@ -17,18 +18,17 @@ const TodoApp = () => {
         setTextInput={setTextInput}
         tasks={tasks}
         setTasks={setTasks}
-        isDone={isDone}
-        setIsDone={setIsDone}
+        // completed = {completed}
       />
       <TodoList
         textInput={textInput}
         setTextInput={setTextInput}
         tasks={tasks}
         setTasks={setTasks}
-        isDone={isDone}
-        setIsDone={setIsDone}
+        setCompleted={setCompleted}
+        completed = {completed}
       />
-      {tasks.length >=1 && <ReviewList tasks={tasks} setTasks={setTasks} / >}
+      {!tasks.length || <ReviewList tasks={tasks.length} setTasks={setTasks} / >}
     
     </div>
   );

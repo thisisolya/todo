@@ -1,7 +1,7 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ textInput, setTextInput, tasks, setTasks, isDone, setIsDone }) => {
+const TodoList = ({ tasks, setTasks, setCompleted, completed }) => {
     return (
         <div className="todo-list">
             {tasks.map(oneTask =>
@@ -10,12 +10,15 @@ const TodoList = ({ textInput, setTextInput, tasks, setTasks, isDone, setIsDone 
                     key={oneTask.id}
                     tasks={tasks}
                     setTasks={setTasks}
-                    isDone = {oneTask.completed}
-                    setIsDone = {setIsDone}
+                    setCompleted = {setCompleted}
+                    completed = {oneTask.completed}
                 />
             )}
         </div>
     );
 }
+
+
+
 
 export default TodoList;

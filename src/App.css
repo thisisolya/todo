@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: rgb(88,87,85);
+  color: #000101;
   background: rgb(42, 235, 237);
   background: linear-gradient(
     90deg,
@@ -14,16 +14,25 @@ body {
 }
 
 h1 {
-  text-shadow: 1px 1px 1px rgba(39, 39, 38, 0.555);
+  font-size: 30px;
+  width: 80%;
 }
 
 .container {
-  max-width: 50%;
   margin: 50px auto;
+  padding: 15px 25px 25px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: fit-content;
+  height: fit-content;
+  min-width: 415px;
+  min-height: 425px;
+  background-color: white;
+  position: relative; 
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.068);
 }
 
 .input-wrapper {
@@ -35,29 +44,31 @@ h1 {
 }
 
 .task-input {
+  box-sizing: border-box;
   display: block;
-  width: 250px;
-  height: 30px;
+  width: 99%;
+  height: 40px;
   padding: 5px 10px;
-  border-radius: 5px 0 0 5px;
-  border: none;
+  margin-right: 1%;
+  border-radius: 2px;
+  border: 2px solid rgb(242, 242, 242);
   outline: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: rgb(24, 139, 141);
 }
 
 input:focus {
-  box-shadow: 5px 0px 2px 0px rgba(42, 234, 237, 0.404) inset;
+  box-shadow: 5px 0px 2px 0px rgb(242, 242, 242) inset;
 }
 
 .add-button {
+  box-sizing: border-box;
   display: block;
   width: 40px;
   height: 40px;
   background-color: rgb(141, 76, 232);
   border: none;
   outline: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 2px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(250, 253, 255);
 }
@@ -81,26 +92,26 @@ input:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
+  margin: 20px 0 70px;
 }
 
 .task {
+  width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
   margin-top: 5px;
-  background-color: rgb(242, 242, 242);
-  border-radius: 5px;
   padding-left: 10px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 2px;
 }
 
 .task-point {
-  width: 280px;
+  flex-grow: 1;
   margin: 0 10px;
   height: 30px;
   line-height: 30px;
-  color: rgb(88,87,85);
   padding: 0;
   border-radius: 0px;
 }
@@ -110,12 +121,14 @@ input:focus {
 }
 
 .delete-button {
+  box-sizing: border-box;
   display: block;
+  justify-self: flex-end;
   width: 40px;
   height: 40px;
   background-color: rgb(235, 75, 63);
   border: none;
-  border-radius: 0 5px 5px 0;
+  border-radius: 2px;
   outline: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: white;
@@ -157,19 +170,23 @@ input[type="checkbox"]:focus {
 }
 
 .footer {
+  width: calc(100% - 50px);
+  height: 40px;
+  margin: 15px auto 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: absolute; 
+  bottom: 0; 
 }
 
 .footer p{
-  margin-right: 50px;
-  color: rgb(54, 54, 54);
+  flex-grow: 1;
 }
 
 .clear-all {
   display: block;
-  height: 30px;
+  height: 40px;
   background-color: rgb(141, 76, 232);
   border: none;
   border-radius: 5px;
