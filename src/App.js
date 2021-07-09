@@ -1,5 +1,5 @@
-import './App.css';
-import TodoApp from './todo_app';
+import './App.scss';
+import TodoApp from './TodoApp';
 
 function App() {
   return (

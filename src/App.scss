@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #070f1a;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  background: #4e8ce4;
+  background: linear-gradient(360deg, #4e8ce4b3 0%, #61d6ce 100%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 500px;
+  min-height: 60vh;
+  height: fit-content;
+  margin: 50px auto;
+  padding: 20px 25px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px 1px #00000011;
+
+  @media (max-width: 768px){
+      width: 70%;
+  }
+  
+  @media(max-width: 480px) {
+      width: 95%;
+      padding: 20px;
+  }  
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  transition: 0.2s;
+  border: none;
+  &:hover {
+    transition: 0.2s;
+  }
+  &:active {
+    box-shadow: none;
+    transition: 0;
+  }
+  .material-icons {
+    line-height: 40px;
+    color: #fafdff;
+    font-size: 18px;
+  }
+}
+
+form {
+  display: flex;
+  margin: 30px 0 20px;
+
+  input {
+    flex-grow: 1;
+    padding: 5px 10px;
+    margin-right: 1%;
+    outline: none;
+    border: 2px solid #f2f2f2 {
+      radius: 2px;
+    }
+    &:focus {
+      box-shadow: 5px 0px 2px 0px #f2f2f2 inset;
+    }
+  }
+
+  button {
+    background-color: #8d4ce8;
+    border-radius: 2px;
+    &:hover {
+      box-shadow: -5px 0px 2px 0px #22034d2d inset;
+    }
+    &:active {
+      background-color: #af87e7;
+    }
+  }
+}
+
+.todo-list {
+  flex-grow: 1;
+
+  .task {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding-left: 10px;
+    background-color: #f2f2f2;
+    border-radius: 2px;
+  }
+
+  input {
+    width: 18px;
+    height: 18px;
+  }
+
+  p {
+    flex-grow: 1;
+    margin: 0 10px;
+    line-height: 30px;
+  }
+
+  .completed {
+    text-decoration: line-through;
+  }
+
+  button {
+    background-color: #eb4b3f;
+    border-radius: 0 2px 2px 0;
+    &:hover {
+      box-shadow: -5px 0px 2px 0px #bb0c004f inset;
+    }
+    &:active {
+      background-color: #c97771;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+
+  p {
+    flex-grow: 1;
+  }
+
+  button {
+    width: fit-content;
+    background-color: rgb(141, 76, 232);
+    border-radius: 2px;
+    padding: 0 10px;
+    color: #fafdff;
+    &:hover {
+      box-shadow: 0px 0px 4px 0px #22034d2d inset;
+    }
+    &:active {
+      background-color: rgb(175, 135, 231);
+    }
+  }
+}
+
