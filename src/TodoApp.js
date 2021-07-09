@@ -6,19 +6,19 @@ import Footer from "./Footer";
 
 const TodoApp = () => {
 
-  const [tasksArray, modifyTasksArray] = useState([]);
+  const [tasksArray, setTasksArray] = useState([]);
 
   const addTaskToArray = (task) => {
-    modifyTasksArray([...tasksArray, task]);
+    setTasksArray([...tasksArray, task]);
   }
 
 
   const deleteTask = (clickedId) => {
-    clickedId ? modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : modifyTasksArray([])
+    clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
 
   const changeTaskStatus = (clickedId) => {
-    modifyTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
+    setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
   }
 
   return (
