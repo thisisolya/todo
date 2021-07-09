@@ -1,27 +1,22 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ tasks, setTasks, changeStatus }) => {
 
-    const deleteTask = (clickedId) => {
-        setTasks(tasks.filter((clickedTask) => clickedTask.id !== clickedId));
-    }
+const TodoList = ({ tasksArray, deleteTask, changeTaskStatus }) => {
 
     return (
         <div className="todo-list">
-            {tasks.map(oneTask =>
+            {tasksArray.map(oneTask =>
                 <TodoItem
                     oneTask={oneTask}
-                    deleteTask={deleteTask}
-                    changeStatus={changeStatus}
                     key={oneTask.id}
+                    deleteTask={deleteTask}
+                    changeTaskStatus={changeTaskStatus}
                 />
             )}
         </div>
     );
 }
-
-
 
 
 export default TodoList;

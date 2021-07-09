@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-const TodoInput = ({ textInput, setTextInput, addTask }) => {
+
+const TodoInput = ({ addTaskToArray }) => {
+
+    const [textInput, setTextInput] = useState("");
 
     const handleInputChange = (e) => {
         setTextInput(e.target.value);
@@ -9,14 +12,14 @@ const TodoInput = ({ textInput, setTextInput, addTask }) => {
 
     const handleButtonClick = (e) => {
         e.preventDefault();
-        addTask({ text: textInput, id: uuidv4(), completed: false, });
+        addTaskToArray({ text: textInput, id: uuidv4(), completed: false, });
         setTextInput("");
     }
 
     return (
-        <form className="input-wrapper">
-            <input type="text" className="task-input" value={textInput} placeholder="add a task..." onChange={handleInputChange} />
-            <button className="add-button" type="submit" onClick={handleButtonClick} disabled={textInput.length ? false : true}>
+        <form>
+            <input type="text" value={textInput} placeholder="add a task..." onChange={handleInputChange} />
+            <button type="submit" onClick={handleButtonClick} disabled={textInput.length ? false : true}>
                 <span className="material-icons material-icons-outlined">
                     add
                 </span>
@@ -24,6 +27,7 @@ const TodoInput = ({ textInput, setTextInput, addTask }) => {
         </form>
     )
 }
+
 
 export default TodoInput
 

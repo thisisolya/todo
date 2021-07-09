@@ -1,36 +1,38 @@
 import React, { useState } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
-import ReviewList from "./ReviewList";
+import Footer from "./Footer";
+
 
 const TodoApp = () => {
 
-  const [textInput, setTextInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+  let [tasksArray, modifyTasksArray] = useState([]);
 
-  const addTask = (obj) => {
-    setTasks([...tasks, obj]);
+  const addTaskToArray = (task) => {
+    modifyTasksArray([...tasksArray, task]);
   }
 
-  const changeStatus = (currentTask) => {
-    setTasks(tasks.map((item) => (item.id === currentTask.id) ? ({ ...item, completed: !currentTask.completed }) : item))
+
+  const deleteTask = (clickedId) => {
+    (clickedId === "clear-all") ? (modifyTasksArray(tasksArray = [])) : modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id))
+  }
+
+  const changeTaskStatus = (currentTask) => {
+    modifyTasksArray(tasksArray.map((item) => (item.id === currentTask) ? ({ ...item, completed: !item.completed }) : item))
   }
 
   return (
     <div className="container">
       <h1> My to-do list </h1>
       <TodoInput
-        textInput={textInput}
-        setTextInput={setTextInput}
-        addTask={addTask}
+        addTaskToArray={addTaskToArray}
       />
       <TodoList
-        tasks={tasks}
-        setTasks={setTasks}
-        changeStatus={changeStatus}
+        tasksArray={tasksArray}
+        deleteTask={deleteTask}
+        changeTaskStatus={changeTaskStatus}
       />
-      {!tasks.length || <ReviewList tasks={tasks.length} setTasks={setTasks} />}
-
+      {tasksArray.length !== 0 && <Footer tasksArray={tasksArray.length} deleteTask={deleteTask} />}
     </div>
   );
 }
