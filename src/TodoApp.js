@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 const TodoApp = () => {
 
-  let [tasksArray, modifyTasksArray] = useState([]);
+  const [tasksArray, modifyTasksArray] = useState([]);
 
   const addTaskToArray = (task) => {
     modifyTasksArray([...tasksArray, task]);
@@ -14,11 +14,11 @@ const TodoApp = () => {
 
 
   const deleteTask = (clickedId) => {
-    (clickedId === "clear-all") ? (modifyTasksArray(tasksArray = [])) : modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id))
+    (clickedId === undefined) ? (modifyTasksArray([])) : modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id))
   }
 
-  const changeTaskStatus = (currentTask) => {
-    modifyTasksArray(tasksArray.map((item) => (item.id === currentTask) ? ({ ...item, completed: !item.completed }) : item))
+  const changeTaskStatus = (clickedId) => {
+    modifyTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
   }
 
   return (
@@ -32,7 +32,7 @@ const TodoApp = () => {
         deleteTask={deleteTask}
         changeTaskStatus={changeTaskStatus}
       />
-      {tasksArray.length !== 0 && <Footer tasksArray={tasksArray.length} deleteTask={deleteTask} />}
+      {tasksArray.length !== 0 && <Footer tasksArrayLength={tasksArray.length} deleteTask={deleteTask} />}
     </div>
   );
 }

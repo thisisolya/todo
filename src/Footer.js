@@ -1,18 +1,15 @@
 import React from "react";
 
-const Footer = ({ tasksArray, deleteTask }) => {
+const Footer = ({ tasksArrayLength, deleteTask }) => {
 
-    const initializeDelete = (e) => {
-        const clearAllButton = {
-            id: e.target.getAttribute("id")
-        };
-        deleteTask(clearAllButton.id);
+    const initializeDelete = () => {
+        deleteTask();
     }
 
     return (
         <div className="footer">
-            <p>Total amount of tasks: {tasksArray}</p>
-            <button id="clear-all" onClick={initializeDelete}>Clear all</button>
+            <p>Total amount of tasks: {tasksArrayLength}</p>
+            <button onClick={initializeDelete}>Clear all</button>
         </div>
     );
 }
