@@ -14,7 +14,7 @@ const TodoApp = () => {
 
 
   const deleteTask = (clickedId) => {
-    (clickedId === undefined) ? (modifyTasksArray([])) : modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id))
+    clickedId ? modifyTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : modifyTasksArray([])
   }
 
   const changeTaskStatus = (clickedId) => {
