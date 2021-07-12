@@ -1,26 +1,27 @@
-import React from "react"
+import React, { useState } from "react"
+import PassiveTask from "./PassiveTask"
+import ActiveTask from "./ActiveTask"
 
 
-const TodoItem = ({ oneTask, deleteTask, changeTaskStatus }) => {
+const TodoItem = ({ oneTask, deleteTask, changeTaskStatus, hover }) => {
 
-    const initializeDelete = () => {
-        deleteTask(oneTask.id)
+    const [currentTask, editCurrentTask] = useState(false);
+
+    const [taskEdition, setTaskEdition] = useState("");
+
+    const activeTask = () => {
+        editCurrentTask(true)
     }
 
-    const initializeStatusChanges = () => {
-        changeTaskStatus(oneTask.id)
+    const passiveTask = () => {
+        editCurrentTask(false)
     }
+
 
     return (
-        <div className="task">
-            <input type="checkbox" onChange={initializeStatusChanges} />
-            <p className={`${oneTask.completed ? "completed" : null}`}>{oneTask.text}</p>
-            <button onClick={initializeDelete}>
-                <span className="material-icons material-icons-outlined">
-                    delete
-                </span>
-            </button>
-        </div>
+        currentTask ?
+            <ActiveTask taskEdition={taskEdition} setTaskEdition={setTaskEdition} oneTask={oneTask} passiveTask={passiveTask} hover={hover} /> :
+            <PassiveTask taskEdition={taskEdition} hover={hover} deleteTask={deleteTask} oneTask={oneTask} activeTask={activeTask} changeTaskStatus={changeTaskStatus} />
     )
 }
 
