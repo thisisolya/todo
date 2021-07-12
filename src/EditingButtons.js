@@ -1,21 +1,20 @@
 import React from "react"
 
 
-const EditingButtons = ({ passiveTask, discardChanges, saveChanges, taskEdition }) => {
+const EditingButtons = ({ discardChanges, saveChanges, editedTaskLength }) => {
 
-    const initializeSaveChanges = () => {
-        saveChanges()
-        passiveTask()
+    const initializeSaveChanges = (e) => {
+        e.preventDefault();
+        saveChanges();
     }
 
     const initializeDiscardChanges = () => {
-        discardChanges()
-        passiveTask()
+        discardChanges();
     }
 
     return (
         <div>
-            <button className="submit" onClick={initializeSaveChanges}>
+            <button type="submit" className="submit" onClick={initializeSaveChanges} disabled={editedTaskLength ? false : true}>
                 <span className="material-icons material-icons-outlined">
                     done
                 </span>

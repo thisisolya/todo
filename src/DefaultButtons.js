@@ -1,14 +1,14 @@
 import React from "react"
 
 
-const DefaultButtons = ({ deleteTask, oneTask, activeTask }) => {
+const DefaultButtons = ({ deleteTask, oneTask, activateTaskEditing }) => {
 
     const initializeDelete = () => {
         deleteTask(oneTask.id)
     }
 
     const actvateTask = () => {
-        activeTask()
+        activateTaskEditing()
     }
 
     return (

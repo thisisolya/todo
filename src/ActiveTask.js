@@ -2,24 +2,21 @@ import React from "react"
 import EditingButtons from "./EditingButtons"
 
 
-const ActiveTask = ({ oneTask, passiveTask, hover, setTaskEdition, taskEdition }) => {
+const ActiveTask = ({ saveChanges, discardChanges, setEditedTask, editedTask }) => {
+
 
     const handleInputChange = (e) => {
-        setTaskEdition(e.target.value);
-    }
-
-    const discardChanges = () => {
-        setTaskEdition(oneTask.text);
-    }
-
-    const saveChanges = () => {
-        oneTask.text = taskEdition;
+        setEditedTask(e.target.value);
     }
 
     return (
         <div className="task">
-            <input type="text" onChange={handleInputChange} value={taskEdition || oneTask.text} />
-            {hover && <EditingButtons taskEdition={taskEdition} discardChanges={discardChanges} saveChanges={saveChanges} passiveTask={passiveTask} oneTask={oneTask} />}
+            <input type="text" onChange={handleInputChange} value={editedTask} />
+            <EditingButtons
+                editedTaskLength={editedTask.length}
+                discardChanges={discardChanges}
+                saveChanges={saveChanges}
+            />
         </div>
     )
 }

@@ -3,25 +3,56 @@ import PassiveTask from "./PassiveTask"
 import ActiveTask from "./ActiveTask"
 
 
-const TodoItem = ({ oneTask, deleteTask, changeTaskStatus, hover }) => {
+const TodoItem = ({ oneTask, deleteTask, changeTaskStatus }) => {
 
     const [currentTask, editCurrentTask] = useState(false);
 
-    const [taskEdition, setTaskEdition] = useState("");
+    const [editedTask, setEditedTask] = useState(oneTask.text);
 
-    const activeTask = () => {
+    const [hover, setHover] = useState(false);
+
+    const activateTaskEditing = () => {
         editCurrentTask(true)
     }
 
-    const passiveTask = () => {
+    const deactivateTaskEditing = () => {
         editCurrentTask(false)
     }
 
+    const setHoverActive = () => {
+        setHover(true)
+    }
+
+    const setHoverPassive = () => {
+        setHover(false)
+    }
+
+    const saveChanges = () => {
+        oneTask.text = editedTask;
+        deactivateTaskEditing();
+    }
+
+    const discardChanges = () => {
+        setEditedTask(oneTask.text);
+        deactivateTaskEditing();
+    }
 
     return (
-        currentTask ?
-            <ActiveTask taskEdition={taskEdition} setTaskEdition={setTaskEdition} oneTask={oneTask} passiveTask={passiveTask} hover={hover} /> :
-            <PassiveTask taskEdition={taskEdition} hover={hover} deleteTask={deleteTask} oneTask={oneTask} activeTask={activeTask} changeTaskStatus={changeTaskStatus} />
+        currentTask ? <ActiveTask
+            editedTask={editedTask}
+            setEditedTask={setEditedTask}
+            saveChanges={saveChanges}
+            discardChanges={discardChanges}
+        />
+            : <PassiveTask
+                setHoverPassive={setHoverPassive}
+                setHoverActive={setHoverActive}
+                editedTask={editedTask}
+                hover={hover}
+                deleteTask={deleteTask}
+                oneTask={oneTask}
+                activateTaskEditing={activateTaskEditing}
+                changeTaskStatus={changeTaskStatus} />
     )
 }
 
