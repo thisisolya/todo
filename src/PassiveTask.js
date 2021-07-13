@@ -1,23 +1,17 @@
-import React from "react"
+import React, { useState } from "react"
 import Checkbox from "./Checkbox"
 import DefaultButtons from "./DefaultButtons"
 
 
-const PassiveTask = ({ oneTask, hover, changeTaskStatus, activateTaskEditing, deleteTask, editedTask, setHoverActive, setHoverPassive}) => {
+const PassiveTask = ({ oneTask, changeTaskStatus, setIsEditing, deleteTask }) => {
 
-    const initSetHoverActive = () => {
-        setHoverActive()
-    }
-
-    const initSetHoverPassive = () => {
-        setHoverPassive()
-    }
+    const [hover, setHover] = useState(false);
 
     return (
-        <div className="task" onMouseEnter={initSetHoverActive} onMouseLeave={initSetHoverPassive}>
+        <div className="task" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
             <Checkbox changeTaskStatus={changeTaskStatus} oneTask={oneTask} />
             <p className={`${oneTask.completed ? "completed" : null}`}>{oneTask.text}</p>
-            {hover && <DefaultButtons oneTask={oneTask} activateTaskEditing={activateTaskEditing} deleteTask={deleteTask} />}
+            {hover && <DefaultButtons hover={hover} oneTask={oneTask} deleteTask={deleteTask} setIsEditing={setIsEditing} />}
         </div>
     )
 }

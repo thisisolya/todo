@@ -62,6 +62,7 @@ form {
   input {
     flex-grow: 1;
     padding: 5px 10px;
+    font-size: 1em;
     margin-right: 1%;
     outline: none;
     border: 2px solid #f2f2f2 {
@@ -102,9 +103,10 @@ form {
     height: 18px;
   }
 
-  input[type="text"]{
+  input[type="text"]{ 
     flex-grow: 1;
     margin: 0 10px;
+    font-size: 1em;
     line-height: 30px;
     outline: none;
     border: none;
@@ -120,7 +122,7 @@ form {
   .completed {
     text-decoration: line-through;
   }
-
+  
   .edit{
     background-color: #6b99ff;
   }
@@ -128,8 +130,8 @@ form {
   .delete{
     background-color: #eb4b3f;
     border-radius: 0 2px 2px 0;
-  }  
-
+  }
+  
   .submit{
     background-color: #3feb8c;
   } 
@@ -139,7 +141,7 @@ form {
     border-radius: 0 2px 2px 0;
   } 
   
-  button{
+  button{    
     &:hover {
       box-shadow: -5px 0px 2px 0px #3d3d3d21 inset;
     }
