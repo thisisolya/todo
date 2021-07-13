@@ -4,7 +4,7 @@ import EditingButtons from "./EditingButtons"
 
 const ActiveTask = ({ oneTask, setIsEditing }) => {
 
-    const [editedText, editTaskText] = useState(oneTask.text);
+    const [editedText, setEditedText] = useState(oneTask.text);
 
     const saveChanges = () => {
         oneTask.text = editedText;
@@ -12,12 +12,12 @@ const ActiveTask = ({ oneTask, setIsEditing }) => {
     }
 
     const discardChanges = () => {
-        editTaskText(oneTask.text);
+        setEditedText(oneTask.text);
         setIsEditing(false);
     }
 
     const handleInputChange = (e) => {
-        editTaskText(e.target.value);
+        setEditedText(e.target.value);
     }
 
     return (
@@ -26,8 +26,7 @@ const ActiveTask = ({ oneTask, setIsEditing }) => {
             <EditingButtons
                 editedTaskLength={editedText.length}
                 discardChanges={discardChanges}
-                saveChanges={saveChanges}
-            />
+                saveChanges={saveChanges} />
         </div>
     )
 }

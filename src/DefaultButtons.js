@@ -1,20 +1,16 @@
 import React from "react"
 
 
-const DefaultButtons = ({ deleteTask, oneTask, setIsEditing }) => {
-
-    const initializeDelete = () => {
-        deleteTask(oneTask.id)
-    }
+const DefaultButtons = ({ deleteTask, oneTaskId, setIsEditing, isHovered }) => {
 
     return (
-        <div>
+        isHovered && <div>
             <button className="edit" onClick={() => setIsEditing(true)} >
                 <span className="material-icons material-icons-outlined">
                     edit
                 </span>
             </button>
-            <button className="delete" onClick={initializeDelete}>
+            <button className="delete" onClick={() => deleteTask(oneTaskId)}>
                 <span className="material-icons material-icons-outlined">
                     delete
                 </span>

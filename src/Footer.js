@@ -7,7 +7,7 @@ const Footer = ({ tasksArrayLength, deleteTask }) => {
     }
 
     return (
-        <div className="footer">
+        tasksArrayLength !== 0 && <div className="footer">
             <p>Total amount of tasks: {tasksArrayLength}</p>
             <button onClick={initializeDelete}>Clear all</button>
         </div>

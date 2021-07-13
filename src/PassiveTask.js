@@ -5,13 +5,21 @@ import DefaultButtons from "./DefaultButtons"
 
 const PassiveTask = ({ oneTask, changeTaskStatus, setIsEditing, deleteTask }) => {
 
-    const [hover, setHover] = useState(false);
+    const [isHovered, setisHovered] = useState(false);
 
     return (
-        <div className="task" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-            <Checkbox changeTaskStatus={changeTaskStatus} oneTask={oneTask} />
+        <div className="task"
+            onMouseEnter={() => setisHovered(true)}
+            onMouseLeave={() => setisHovered(false)}>
+            <Checkbox
+                changeTaskStatus={changeTaskStatus}
+                oneTask={oneTask} />
             <p className={`${oneTask.completed ? "completed" : null}`}>{oneTask.text}</p>
-            {hover && <DefaultButtons hover={hover} oneTask={oneTask} deleteTask={deleteTask} setIsEditing={setIsEditing} />}
+            <DefaultButtons
+                isHovered={isHovered}
+                oneTaskId={oneTask.id}
+                deleteTask={deleteTask}
+                setIsEditing={setIsEditing} />
         </div>
     )
 }

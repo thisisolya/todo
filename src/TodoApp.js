@@ -12,7 +12,6 @@ const TodoApp = () => {
     setTasksArray([...tasksArray, task]);
   }
 
-
   const deleteTask = (clickedId) => {
     clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
@@ -32,7 +31,9 @@ const TodoApp = () => {
         deleteTask={deleteTask}
         changeTaskStatus={changeTaskStatus}
       />
-      {tasksArray.length !== 0 && <Footer tasksArrayLength={tasksArray.length} deleteTask={deleteTask} />}
+      <Footer
+        tasksArrayLength={tasksArray.length}
+        deleteTask={deleteTask} />
     </div>
   );
 }
