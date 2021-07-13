@@ -10,7 +10,8 @@ const TodoItem = ({ oneTask, deleteTask, changeTaskStatus }) => {
     return (
         isEditing ? <ActiveTask
             oneTask={oneTask}
-            setIsEditing={setIsEditing} />
+            setIsEditing={setIsEditing}
+            changeTaskStatus={changeTaskStatus} />
             : <PassiveTask
                 deleteTask={deleteTask}
                 oneTask={oneTask}

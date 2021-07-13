@@ -2,17 +2,17 @@ import React, { useState } from "react"
 import EditingButtons from "./EditingButtons"
 
 
-const ActiveTask = ({ oneTask, setIsEditing }) => {
+const ActiveTask = ({ oneTask, setIsEditing, changeTaskStatus }) => {
 
     const [editedText, setEditedText] = useState(oneTask.text);
 
     const saveChanges = () => {
-        oneTask.text = editedText;
+        changeTaskStatus(oneTask.id, editedText);
         setIsEditing(false);
     }
 
     const discardChanges = () => {
-        setEditedText(oneTask.text);
+        changeTaskStatus();
         setIsEditing(false);
     }
 

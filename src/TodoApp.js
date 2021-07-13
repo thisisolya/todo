@@ -16,8 +16,12 @@ const TodoApp = () => {
     clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
 
-  const changeTaskStatus = (clickedId) => {
-    setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
+  const changeTaskStatus = (clickedId, newText) => {
+    if (clickedId && newText) {
+      setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, text: newText }) : item))
+    } else if (clickedId) {
+      setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
+    }
   }
 
   return (
