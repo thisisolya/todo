@@ -7,7 +7,7 @@ const ActiveTask = ({ oneTask, setIsEditing, editTaskProperties }) => {
     const [editedText, setEditedText] = useState(oneTask.text);
 
     const saveChanges = () => {
-        editTaskProperties({ ...oneTask, text: editedText });
+        editTaskProperties(oneTask.text = editedText);
         setIsEditing(false);
     }
 
