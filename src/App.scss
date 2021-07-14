@@ -57,11 +57,12 @@ button {
 
 form {
   display: flex;
-  margin: 30px 0 20px;
+  margin: 30px 0;
 
   input {
     flex-grow: 1;
     padding: 5px 10px;
+    font-size: 1em;
     margin-right: 1%;
     outline: none;
     border: 2px solid #f2f2f2 {
@@ -92,13 +93,24 @@ form {
     align-items: center;
     margin-top: 5px;
     padding-left: 10px;
+    height: 40px;
     background-color: #f2f2f2;
     border-radius: 2px;
   }
 
-  input {
+  input[type="checkbox"]{
     width: 18px;
     height: 18px;
+  }
+
+  input[type="text"]{ 
+    flex-grow: 1;
+    margin: 0 10px;
+    font-size: 1em;
+    line-height: 30px;
+    outline: none;
+    border: none;
+    background-color: inherit;
   }
 
   p {
@@ -110,18 +122,37 @@ form {
   .completed {
     text-decoration: line-through;
   }
+  
+  .edit{
+    background-color: #6b99ff;
+  }
 
-  button {
+  .delete{
     background-color: #eb4b3f;
     border-radius: 0 2px 2px 0;
+  }
+  
+  .submit{
+    background-color: #3feb8c;
+  } 
+
+  .cancel{
+    background-color: #eb4b3f;
+    border-radius: 0 2px 2px 0;
+  } 
+  
+  button{    
     &:hover {
-      box-shadow: -5px 0px 2px 0px #bb0c004f inset;
+      box-shadow: -5px 0px 2px 0px #3d3d3d21 inset;
     }
     &:active {
-      background-color: #c97771;
+      background-color: #ffffff33;
     }
   }
 }
+  
+
+
 
 .footer {
   display: flex;

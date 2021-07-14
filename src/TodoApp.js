@@ -12,13 +12,12 @@ const TodoApp = () => {
     setTasksArray([...tasksArray, task]);
   }
 
-
   const deleteTask = (clickedId) => {
     clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
 
-  const changeTaskStatus = (clickedId) => {
-    setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
+  const editTaskProperties = (clickedItem) => {
+    setTasksArray(tasksArray.map((item) => (item.id === clickedItem.id) ? clickedItem : item))
   }
 
   return (
@@ -30,9 +29,11 @@ const TodoApp = () => {
       <TodoList
         tasksArray={tasksArray}
         deleteTask={deleteTask}
-        changeTaskStatus={changeTaskStatus}
+        editTaskProperties={editTaskProperties}
       />
-      {tasksArray.length !== 0 && <Footer tasksArrayLength={tasksArray.length} deleteTask={deleteTask} />}
+      <Footer
+        tasksArrayLength={tasksArray.length}
+        deleteTask={deleteTask} />
     </div>
   );
 }
