@@ -16,15 +16,8 @@ const TodoApp = () => {
     clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
 
-  const changeTaskStatus = (clickedItem) => {
-    setTasksArray(tasksArray.map((item) => {
-      if (item.id === clickedItem.id) {
-        return ({ ...Object.assign(item, clickedItem) })
-      }
-      else if (item.id === clickedItem) {
-        return ({ ...item, completed: !item.completed })
-      } else return item
-    }))
+  const editTaskProperties = (clickedItem) => {
+    setTasksArray(tasksArray.map((item) => (item.id === clickedItem.id) ? ({ ...Object.assign(item, clickedItem) }) : item))
   }
 
 
@@ -37,7 +30,7 @@ const TodoApp = () => {
       <TodoList
         tasksArray={tasksArray}
         deleteTask={deleteTask}
-        changeTaskStatus={changeTaskStatus}
+        editTaskProperties={editTaskProperties}
       />
       <Footer
         tasksArrayLength={tasksArray.length}

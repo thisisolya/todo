@@ -3,7 +3,7 @@ import Checkbox from "./Checkbox"
 import DefaultButtons from "./DefaultButtons"
 
 
-const PassiveTask = ({ oneTask, changeTaskStatus, setIsEditing, deleteTask }) => {
+const PassiveTask = ({ oneTask, editTaskProperties, setIsEditing, deleteTask }) => {
 
     const [isHovered, setisHovered] = useState(false);
 
@@ -12,7 +12,7 @@ const PassiveTask = ({ oneTask, changeTaskStatus, setIsEditing, deleteTask }) =>
             onMouseEnter={() => setisHovered(true)}
             onMouseLeave={() => setisHovered(false)}>
             <Checkbox
-                changeTaskStatus={changeTaskStatus}
+                editTaskProperties={editTaskProperties}
                 oneTask={oneTask} />
             <p className={`${oneTask.completed ? "completed" : null}`}>{oneTask.text}</p>
             <DefaultButtons

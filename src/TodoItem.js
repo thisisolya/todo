@@ -3,7 +3,7 @@ import PassiveTask from "./PassiveTask"
 import ActiveTask from "./ActiveTask"
 
 
-const TodoItem = ({ oneTask, deleteTask, changeTaskStatus }) => {
+const TodoItem = ({ oneTask, deleteTask, editTaskProperties }) => {
 
     const [isEditing, setIsEditing] = useState(false);
 
@@ -11,12 +11,12 @@ const TodoItem = ({ oneTask, deleteTask, changeTaskStatus }) => {
         isEditing ? <ActiveTask
             oneTask={oneTask}
             setIsEditing={setIsEditing}
-            changeTaskStatus={changeTaskStatus} />
+            editTaskProperties={editTaskProperties} />
             : <PassiveTask
                 deleteTask={deleteTask}
                 oneTask={oneTask}
                 setIsEditing={setIsEditing}
-                changeTaskStatus={changeTaskStatus} />
+                editTaskProperties={editTaskProperties} />
     )
 }
 

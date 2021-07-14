@@ -1,10 +1,10 @@
 import React from "react"
 
 
-const Checkbox = ({ oneTask, changeTaskStatus }) => {
+const Checkbox = ({ oneTask, editTaskProperties }) => {
 
     const initializeStatusChanges = () => {
-        changeTaskStatus(oneTask.id)
+        editTaskProperties({ ...oneTask, completed: !oneTask.completed })
     }
 
     return (

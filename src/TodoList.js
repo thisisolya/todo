@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 
-const TodoList = ({ tasksArray, deleteTask, changeTaskStatus }) => {
+const TodoList = ({ tasksArray, deleteTask, editTaskProperties }) => {
 
     return (
         <div className="todo-list">
@@ -11,7 +11,7 @@ const TodoList = ({ tasksArray, deleteTask, changeTaskStatus }) => {
                     oneTask={oneTask}
                     key={oneTask.id}
                     deleteTask={deleteTask}
-                    changeTaskStatus={changeTaskStatus}
+                    editTaskProperties={editTaskProperties}
                 />
             )}
         </div>
