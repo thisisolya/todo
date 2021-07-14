@@ -17,7 +17,7 @@ const TodoApp = () => {
   }
 
   const editTaskProperties = (clickedItem) => {
-    setTasksArray(tasksArray.map((item) => (item.id === clickedItem.id) ? ({ ...clickedItem }) : item))
+    setTasksArray(tasksArray.map((item) => (item.id === clickedItem.id) ? clickedItem : item))
   }
 
   return (
