@@ -1,7 +1,7 @@
 import React from "react"
 
 
-const EditingButtons = ({ discardChanges, saveChanges, editedTaskLength }) => {
+const EditingButtons = ({ setIsEditing, saveChanges, editedTaskLength }) => {
 
     return (
         <div>
@@ -10,7 +10,7 @@ const EditingButtons = ({ discardChanges, saveChanges, editedTaskLength }) => {
                     done
                 </span>
             </button>
-            <button className="cancel" onClick={() => discardChanges()}>
+            <button className="cancel" onClick={() => setIsEditing(false)}>
                 <span className="material-icons material-icons-outlined">
                     clear
                 </span>

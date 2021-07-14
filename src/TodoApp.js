@@ -16,13 +16,17 @@ const TodoApp = () => {
     clickedId ? setTasksArray(tasksArray.filter((clickedTask) => clickedId !== clickedTask.id)) : setTasksArray([])
   }
 
-  const changeTaskStatus = (clickedId, newText) => {
-    if (clickedId && newText) {
-      setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, text: newText }) : item))
-    } else if (clickedId) {
-      setTasksArray(tasksArray.map((item) => (item.id === clickedId) ? ({ ...item, completed: !item.completed }) : item))
-    }
+  const changeTaskStatus = (clickedItem) => {
+    setTasksArray(tasksArray.map((item) => {
+      if (item.id === clickedItem.id) {
+        return ({ ...Object.assign(item, clickedItem) })
+      }
+      else if (item.id === clickedItem) {
+        return ({ ...item, completed: !item.completed })
+      } else return item
+    }))
   }
+
 
   return (
     <div className="container">

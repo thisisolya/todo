@@ -7,12 +7,12 @@ const ActiveTask = ({ oneTask, setIsEditing, changeTaskStatus }) => {
     const [editedText, setEditedText] = useState(oneTask.text);
 
     const saveChanges = () => {
-        changeTaskStatus(oneTask.id, editedText);
-        setIsEditing(false);
-    }
-
-    const discardChanges = () => {
-        changeTaskStatus();
+        let item = {
+            completed: oneTask.completed,
+            id: oneTask.id,
+            text: editedText,
+        }
+        changeTaskStatus(item);
         setIsEditing(false);
     }
 
@@ -25,7 +25,7 @@ const ActiveTask = ({ oneTask, setIsEditing, changeTaskStatus }) => {
             <input type="text" onChange={handleInputChange} value={editedText} />
             <EditingButtons
                 editedTaskLength={editedText.length}
-                discardChanges={discardChanges}
+                setIsEditing={setIsEditing}
                 saveChanges={saveChanges} />
         </div>
     )
