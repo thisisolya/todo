@@ -8,7 +8,7 @@ const Checkbox = ({ oneTask, editTaskProperties }) => {
     }
 
     return (
-        <input type="checkbox" onChange={initializeStatusChanges} />
+        <input type="checkbox" checked={oneTask.completed} onChange={initializeStatusChanges} />
     )
 }
 
