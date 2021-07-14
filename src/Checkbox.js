@@ -4,7 +4,7 @@ import React from "react"
 const Checkbox = ({ oneTask, editTaskProperties }) => {
 
     const initializeStatusChanges = () => {
-        editTaskProperties( oneTask.completed =!oneTask.completed )
+        editTaskProperties({ ...oneTask, completed: !oneTask.completed })
     }
 
     return (
