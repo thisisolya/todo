@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoInput from "./TodoInput";
 import TodoList from "./TodoList";
 import Footer from "./Footer";
+import EditSettings from './EditSettings'
 
+
+export const EditingContext = React.createContext();
 
 const TodoApp = () => {
 
@@ -20,21 +23,38 @@ const TodoApp = () => {
     setTasksArray(tasksArray.map((item) => (item.id === clickedItem.id) ? clickedItem : item))
   }
 
+  const [editingAllowed, seteEditingAllowed] = useState(true);
+
+  const toggleEditingSettings = () => {
+      seteEditingAllowed(editingAllowed => !editingAllowed)
+  }
+
+  useEffect(() => {
+    const saved = localStorage.getItem('tasks');
+    saved ? setTasksArray(JSON.parse(saved)) : setTasksArray([]);
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasksArray))
+  }, [tasksArray])
+
   return (
-    <div className="container">
-      <h1> My to-do list </h1>
-      <TodoInput
-        addTaskToArray={addTaskToArray}
-      />
-      <TodoList
-        tasksArray={tasksArray}
-        deleteTask={deleteTask}
-        editTaskProperties={editTaskProperties}
-      />
-      <Footer
-        tasksArrayLength={tasksArray.length}
-        deleteTask={deleteTask} />
-    </div>
+    <EditingContext.Provider value={editingAllowed}>
+      <div className="container">
+        <h1> My to-do list </h1>
+        <TodoInput addTaskToArray={addTaskToArray} />
+        <EditSettings toggleEditingSettings={toggleEditingSettings}/>
+        <TodoList
+          tasksArray={tasksArray}
+          deleteTask={deleteTask}
+          editTaskProperties={editTaskProperties}
+        />
+        <Footer
+          tasksArrayLength={tasksArray.length}
+          deleteTask={deleteTask} />
+      </div>
+    </EditingContext.Provider>
+
   );
 }
 
