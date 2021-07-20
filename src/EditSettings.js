@@ -1,15 +1,12 @@
 import React from 'react';
-import { useEditingToggle } from './EditContext';
 
 
-const EditSettings = () => {
-
-    const toggleSettings = useEditingToggle();
+const EditSettings = ({ toggleEditingSettings }) => {
 
     return (
         <div className="edit-buttons-wrapper">
             <p>task editing on</p>
-            <input type="checkbox" onChange={toggleSettings} />
+            <input type="checkbox" onChange={() => toggleEditingSettings()} />
             <p>task editing off</p>
         </div>
     )

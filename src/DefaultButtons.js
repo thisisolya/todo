@@ -1,10 +1,10 @@
-import React from "react";
-import { useEditingContext } from './EditContext';
+import React, { useContext } from "react";
+import { EditingContext } from './TodoApp';
 
 
 const DefaultButtons = ({ deleteTask, oneTaskId, setIsEditing, isHovered }) => {
 
-    const isEditingAllowed = useEditingContext();
+    const isEditingAllowed = useContext(EditingContext);
 
     if (!isHovered) return null;
     return (<div>
