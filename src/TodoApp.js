@@ -30,8 +30,8 @@ const TodoApp = () => {
   }
 
   useEffect(() => {
-    const saved = localStorage.getItem('tasks') || [];
-    setTasksArray(JSON.parse(saved))
+    const saved = localStorage.getItem('tasks');
+    saved ? setTasksArray(JSON.parse(saved)) : setTasksArray([]);
   }, [])
 
   useEffect(() => {
